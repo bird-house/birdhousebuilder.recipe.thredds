@@ -21,7 +21,7 @@ class Recipe(object):
         b_options = buildout['buildout']
         self.anaconda_home = b_options.get('anaconda-home', conda.anaconda_home())
         self.options['prefix'] = self.anaconda_home
-        self.data_root = options.get('data_root', '/tmp')
+        self.options['data_root'] = options.get('data_root', '/tmp')
 
     def install(self):
         installed = []
