@@ -21,7 +21,8 @@ class Recipe(object):
         b_options = buildout['buildout']
         self.anaconda_home = b_options.get('anaconda-home', conda.anaconda_home())
         self.options['prefix'] = self.anaconda_home
-        self.options['data_root'] = options.get('data_root', '/tmp')
+        self.options['data_root'] = options.get('data_root',
+                                                os.path.join(self.anaconda_home, 'tmp', 'files'))
 
     def install(self):
         installed = []
@@ -42,7 +43,7 @@ class Recipe(object):
     def install_thredds_config(self):
         result = thredds_config.render(**self.options)
 
-        output = os.path.join(self.anaconda_home, 'opt', 'apache-tomcat', 'webapps', 'thredds', 'threddsConfig.xml')
+        output = os.path.join(self.anaconda_home, 'opt', 'apache-tomcat', 'content', 'thredds', 'threddsConfig.xml')
         conda.makedirs(os.path.dirname(output))
 
         try:
@@ -57,7 +58,7 @@ class Recipe(object):
     def install_catalog_config(self):
         result = catalog_config.render(**self.options)
 
-        output = os.path.join(self.anaconda_home, 'opt', 'apache-tomcat', 'webapps', 'thredds', 'catalog.xml')
+        output = os.path.join(self.anaconda_home, 'opt', 'apache-tomcat', 'content', 'thredds', 'catalog.xml')
         conda.makedirs(os.path.dirname(output))
 
         try:
@@ -72,7 +73,7 @@ class Recipe(object):
     def install_wms_config(self):
         result = wms_config.render(**self.options)
 
-        output = os.path.join(self.anaconda_home, 'opt', 'apache-tomcat', 'webapps', 'thredds', 'wmsConfig.xml')
+        output = os.path.join(self.anaconda_home, 'opt', 'apache-tomcat', 'content', 'thredds', 'wmsConfig.xml')
         conda.makedirs(os.path.dirname(output))
 
         try:
