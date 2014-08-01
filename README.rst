@@ -13,6 +13,7 @@ Introduction
 .. _`Anaconda`: http://www.continuum.io/
 .. _`Supervisor`: http://supervisord.org/
 .. _`Thredds`: http://www.unidata.ucar.edu/software/thredds/current/tds/TDS.html
+.. _`Tomcat`: https://tomcat.apache.org/
 
 
 Usage
@@ -20,7 +21,9 @@ Usage
 
 The recipe requires that Anaconda is already installed. It assumes that Anaconda is installed at the default location in your home directory ``~/anaconda``. Otherwise you need to set the Buildout option ``anaconda-home`` to the correct location.
 
-It installs the ``thredds`` and ``apache-tomcat`` package from a conda channel and setups Tomcat with Thredds. It deploys a `Supervisor`_ configuration for Tomcat in ``~/anaconda/etc/supervisor/conf.d/tomcat.conf``. Supervisor can be started with ``~/anaconda/etc/init.d/supervisord start``.
+It installs the ``thredds`` and ``apache-tomcat`` package from a conda channel and setups `Tomcat`_ with Thredds. It deploys a `Supervisor`_ configuration for Tomcat in ``~/anaconda/etc/supervisor/conf.d/tomcat.conf``. Supervisor can be started with ``~/anaconda/etc/init.d/supervisord start``.
+
+By default Thredds will be available on http://localhost:8080/thredds.
 
 The recipe depends on ``birdhousebuilder.recipe.conda``, ``birdhousebuilder.recipe.supervisor`` and ``birdhousebuilder.recipe.tomcat``.
 
