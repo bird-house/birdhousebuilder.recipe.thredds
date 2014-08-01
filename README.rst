@@ -7,7 +7,7 @@ birdhousebuilder.recipe.thredds
 Introduction
 ************
 
-``birdhousebuilder.recipe.thredds`` is a `Buildout`_ recipe to install and configure ``Thredds``_ server with ``Anaconda``_.
+``birdhousebuilder.recipe.thredds`` is a `Buildout`_ recipe to install and configure `Thredds`_ server with `Anaconda`_.
 
 .. _`Buildout`: http://buildout.org/
 .. _`Anaconda`: http://www.continuum.io/
