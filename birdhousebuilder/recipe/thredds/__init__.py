@@ -32,7 +32,7 @@ class Recipe(object):
         installed += list(self.install_catalog_config())
         installed += list(self.install_wms_config())
         installed += list(self.install_web_config())
-        return installed
+        return tuple()
 
     def install_thredds(self):
         script = conda.Recipe(
@@ -104,7 +104,12 @@ class Recipe(object):
 
 
     def update(self):
-        return self.install()
+        #self.install_thredds()
+        self.install_thredds_config()
+        self.install_catalog_config()
+        self.install_wms_config()
+        self.install_web_config()
+        return tuple()
 
 def uninstall(name, options):
     pass
