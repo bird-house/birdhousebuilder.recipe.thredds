@@ -5,7 +5,7 @@ This module contains the tool of birdhousebuilder.recipe.thredds
 from setuptools import find_packages
 from setuptools import setup
 
-version = '0.1.4'
+version = '0.2.0'
 description = 'A Buildout recipe to install and configure thredds server with Anaconda.'
 long_description = (
     open('README.rst').read() + '\n' +
@@ -36,9 +36,8 @@ setup(name='birdhousebuilder.recipe.thredds',
           'Topic :: Software Development :: Libraries :: Python Modules',
           'License :: OSI Approved :: BSD License',
       ],
-      keywords='buildout recipe',
-      author='Carsten Ehbrecht',
-      author_email='ehbrecht at dkrz.de',
+      keywords='buildout recipe thredds tomcat birdhouse conda anaconda',
+      author='Birdhouse',
       url='https://github.com/bird-house/birdhousebuilder.recipe.thredds',
       license='BSD',
       packages=find_packages(exclude=['ez_setup']),

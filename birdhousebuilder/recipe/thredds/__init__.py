@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-# Copyright (C)2014 DKRZ GmbH
+# Copyright (C)2015 DKRZ GmbH
 
-"""Recipe tomcat"""
+"""Recipe thredds"""
 
 import os
 from mako.template import Template
@@ -15,12 +15,13 @@ thredds_config = Template(filename=os.path.join(os.path.dirname(__file__), "thre
 catalog_config = Template(filename=os.path.join(os.path.dirname(__file__), "catalog.xml"))
 
 class Recipe(object):
-    """This recipe is used by zc.buildout"""
+    """This recipe is used by zc.buildout.
+    It installs thredds with conda and setups thredds configuration."""
 
     def __init__(self, buildout, name, options):
         self.buildout, self.name, self.options = buildout, name, options
         b_options = buildout['buildout']
-        self.prefix = b_options.get('anaconda-home', conda.anaconda_home())
+        self.prefix = self.options.get('prefix', conda.prefix())
         self.options['prefix'] = self.prefix
         self.options['data_root'] = options.get(
             'data_root', os.path.join(self.prefix, 'var', 'lib', 'pywps', 'outputs'))
