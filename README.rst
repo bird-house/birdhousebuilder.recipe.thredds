@@ -34,7 +34,7 @@ Supported options
 
 This recipe supports the following options:
 
-``anaconda-home``
+**anaconda-home**
    Buildout option with the root folder of the Anaconda installation. Default: ``$HOME/anaconda``.
    The default location can also be set with the environment variable ``ANACONDA_HOME``. Example::
 
@@ -46,8 +46,8 @@ This recipe supports the following options:
    2. ``$ANACONDA_HOME``
    3. ``$HOME/anaconda``
 
-``data_root``
-  Root Path of data files (NetCDF) for Thredds.
+**data_root**
+  Root Path of data files (NetCDF) for Thredds. Default: ``~/.conda/envs/birdhouse/var/lib/pywps/output``
 
 Example usage
 =============
@@ -61,6 +61,6 @@ The following example ``buildout.cfg`` installs Thredds with Anaconda and given 
 
   [thredds]
   recipe = birdhousebuilder.recipe.thredds
-  data_root = ${buildout:anaconda-home}/var/lib/thredds/data_root
+  data_root = /var/lib/thredds/data_root
 
 
