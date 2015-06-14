@@ -1,23 +1,23 @@
 <serverInformation>
-    <name>Initial TDS Installation</name>
+    <name>Birdhouse Thredds Catalog</name>
     <logoUrl>threddsIcon.gif</logoUrl>
-    <logoAltText>Initial TDS Installation</logoAltText>
+    <logoAltText>Birdhouse Thredds Catalog</logoAltText>
 
-    <abstract>Scientific Data</abstract>
-    <keywords>meteorology, atmosphere, climate, ocean, earth science</keywords>
+    <abstract>Climate Data in Birdhouse</abstract>
+    <keywords>meteorology, atmosphere, climate, ocean, earth science, birdhouse</keywords>
 
     <contact>
       <name>Support</name>
-      <organization>My Group</organization>
-      <email>support@my.group</email>
+      <organization>Birdhouse</organization>
+      <email></email>
       <phone></phone>
     </contact>
 
     <hostInstitution>
-      <name>My Group</name>
-      <webSite>http://www.my.group/</webSite>
-      <logoUrl>myGroup.gif</logoUrl>
-      <logoAltText>My Group</logoAltText>
+      <name>Birdhouse</name>
+      <webSite>http://bird-house.github.io/</webSite>
+      <!-- logoUrl>myGroup.gif</logoUrl -->
+      <!-- logoAltText>My Group</logoAltText -->
     </hostInstitution>
 
     <WMS>
