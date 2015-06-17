@@ -2,6 +2,10 @@
 birdhousebuilder.recipe.thredds
 *******************************
 
+.. image:: https://travis-ci.org/bird-house/birdhousebuilder.recipe.thredds.svg?branch=master
+   :target: https://travis-ci.org/bird-house/birdhousebuilder.recipe.thredds
+   :alt: Travis Build
+
 .. contents::
 
 Introduction
