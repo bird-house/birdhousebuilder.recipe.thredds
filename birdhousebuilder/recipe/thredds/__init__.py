@@ -6,7 +6,7 @@ import os
 from mako.template import Template
 
 import zc.buildout
-from birdhousebuilder.recipe import conda
+from birdhousebuilder.recipe import conda, tomcat
 
 wms_config = Template(filename=os.path.join(os.path.dirname(__file__), "wmsConfig.xml"))
 thredds_config = Template(filename=os.path.join(os.path.dirname(__file__), "threddsConfig.xml"))
@@ -48,7 +48,7 @@ class Recipe(object):
     def install_thredds_config(self):
         result = thredds_config.render(**self.options)
 
-        output = os.path.join(self.prefix, 'opt', 'apache-tomcat', 'content', 'thredds', 'threddsConfig.xml')
+        output = os.path.join(tomcat.content_root(self.prefix), 'thredds', 'threddsConfig.xml')
         conda.makedirs(os.path.dirname(output))
 
         try:
@@ -63,7 +63,7 @@ class Recipe(object):
     def install_catalog_config(self):
         result = catalog_config.render(**self.options)
 
-        output = os.path.join(self.prefix, 'opt', 'apache-tomcat', 'content', 'thredds', 'catalog.xml')
+        output = os.path.join(tomcat.content_root(self.prefix), 'thredds', 'catalog.xml')
         conda.makedirs(os.path.dirname(output))
 
         try:
@@ -78,7 +78,7 @@ class Recipe(object):
     def install_wms_config(self):
         result = wms_config.render(**self.options)
 
-        output = os.path.join(self.prefix, 'opt', 'apache-tomcat', 'content', 'thredds', 'wmsConfig.xml')
+        output = os.path.join(tomcat.content_root(self.prefix), 'thredds', 'wmsConfig.xml')
         conda.makedirs(os.path.dirname(output))
 
         try:

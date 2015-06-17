@@ -4,6 +4,7 @@ Changes
 0.2.2 (2015-06-17)
 ==================
 
+* using tomcat.content_root().
 * cleaned up default configs for thredds.
 * allow more configurations.
 

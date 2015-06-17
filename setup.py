@@ -49,6 +49,7 @@ setup(name='birdhousebuilder.recipe.thredds',
                         # -*- Extra requirements: -*-
                         'Mako',
                         'birdhousebuilder.recipe.conda',
+                        'birdhousebuilder.recipe.tomcat',
                         ],
       tests_require=tests_require,
       extras_require=dict(tests=tests_require),
