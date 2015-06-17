@@ -1,10 +1,16 @@
 Changes
 *******
 
+0.2.2 (2015-06-17)
+==================
+
+* cleaned up default configs for thredds.
+* allow more configurations.
+
 0.2.1 (2015-04-02)
 ==================
 
-* update docs.
+* updated docs.
 
 0.2.0 (2015-02-24)
 ==================

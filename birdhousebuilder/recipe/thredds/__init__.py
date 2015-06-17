@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-# Copyright (C)2015 DKRZ GmbH
 
 """Recipe thredds"""
 
@@ -7,9 +6,9 @@ import os
 from mako.template import Template
 
 import zc.buildout
-from birdhousebuilder.recipe import conda, tomcat
+from birdhousebuilder.recipe import conda
 
-web_config = Template(filename=os.path.join(os.path.dirname(__file__), "web.xml"))
+#web_config = Template(filename=os.path.join(os.path.dirname(__file__), "web.xml"))
 wms_config = Template(filename=os.path.join(os.path.dirname(__file__), "wmsConfig.xml"))
 thredds_config = Template(filename=os.path.join(os.path.dirname(__file__), "threddsConfig.xml"))
 catalog_config = Template(filename=os.path.join(os.path.dirname(__file__), "catalog.xml"))
@@ -25,6 +24,11 @@ class Recipe(object):
         self.options['prefix'] = self.prefix
         self.options['data_root'] = options.get(
             'data_root', os.path.join(self.prefix, 'var', 'lib', 'pywps', 'outputs'))
+        self.options['organisation'] = options.get('organisation', 'Birdhouse')
+        self.options['website'] = options.get('website', '')
+        self.options['allow_wms'] = options.get('allow_wms', 'true')
+        self.options['allow_wcs'] = options.get('allow_wcs', 'false')
+        self.options['allow_nciso'] = options.get('allow_nciso', 'false')
 
     def install(self):
         installed = []
@@ -32,7 +36,7 @@ class Recipe(object):
         installed += list(self.install_thredds_config())
         installed += list(self.install_catalog_config())
         installed += list(self.install_wms_config())
-        installed += list(self.install_web_config())
+        #installed += list(self.install_web_config())
         return tuple()
 
     def install_thredds(self):
@@ -109,7 +113,7 @@ class Recipe(object):
         self.install_thredds_config()
         self.install_catalog_config()
         self.install_wms_config()
-        self.install_web_config()
+        #self.install_web_config()
         return tuple()
 
 def uninstall(name, options):
