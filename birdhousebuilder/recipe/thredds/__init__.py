@@ -29,21 +29,23 @@ class Recipe(object):
         self.options['allow_wcs'] = options.get('allow_wcs', 'false')
         self.options['allow_nciso'] = options.get('allow_nciso', 'false')
 
-    def install(self):
+    def install(self, update=False):
         installed = []
-        installed += list(self.install_thredds())
+        installed += list(self.install_conda(update))
         installed += list(self.install_thredds_config())
         installed += list(self.install_catalog_config())
         installed += list(self.install_wms_config())
-        return tuple()
+        return installed
 
-    def install_thredds(self):
+    def install_conda(self, update=False):
         script = conda.Recipe(
             self.buildout,
             self.name,
             {'pkgs': 'thredds'})
-
-        return script.install()
+        if update == True:
+           return script.update()
+        else:
+           return script.install()
 
     def install_thredds_config(self):
         result = thredds_config.render(**self.options)
@@ -91,11 +93,7 @@ class Recipe(object):
         return [output]
 
     def update(self):
-        #self.install_thredds()
-        self.install_thredds_config()
-        self.install_catalog_config()
-        self.install_wms_config()
-        return tuple()
+        return self.install(update=True)
 
 def uninstall(name, options):
     pass
