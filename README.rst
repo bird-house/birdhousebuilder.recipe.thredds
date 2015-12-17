@@ -38,7 +38,7 @@ Supported options
 
 This recipe supports the following options:
 
-``anaconda-home``
+**anaconda-home**
    Buildout option with the root folder of the Anaconda installation. Default: ``$HOME/anaconda``.
    The default location can also be set with the environment variable ``ANACONDA_HOME``. Example::
 
@@ -50,23 +50,28 @@ This recipe supports the following options:
    2. ``$ANACONDA_HOME``
    3. ``$HOME/anaconda``
 
-``data_root``
+**data_root**
   Root Path of data files (NetCDF) for Thredds. Default: ``~/.conda/envs/birdhouse/var/lib/pywps/output``
 
-``organisation``
+**organisation**
   The name of your organisation. Default: Birdhouse
 
-``website``
+**website**
   The URL of your organisation. Default: None
 
-``allow_wms``
+**allow_wms**
   If set to ``true`` Web Mapping Service will be enabled. Default: ``true``.
 
-``allow_wcs``
+**allow_wcs**
   If set to ``true`` Web Coverage Service will be enabled. Default: ``false``.
 
-``allow_nciso``
+**allow_nciso**
   If set to ``true`` ISO generator Service will be enabled. Default: ``false``.
+
+To configure tomcat see the options in the `tomcat recipe <https://pypi.python.org/pypi/birdhousebuilder.recipe.tomcat>`_. For example:
+
+**http_port**
+    HTTP Port for Tomcat service. Default: 8080
 
 Example usage
 =============
@@ -80,8 +85,11 @@ The following example ``buildout.cfg`` installs Thredds with Anaconda and given 
 
   [thredds]
   recipe = birdhousebuilder.recipe.thredds
+  # ncwms
   data_root = /var/lib/thredds/data_root
   organisation = Birdhouse
   allow_wms = true
+  # tomcat
+  http_port = 8080
 
 
