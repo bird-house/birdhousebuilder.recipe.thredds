@@ -31,11 +31,19 @@ class Recipe(object):
 
     def install(self, update=False):
         installed = []
+        installed += list(self.install_tomcat(update))
         installed += list(self.install_conda(update))
         installed += list(self.install_thredds_config())
         installed += list(self.install_catalog_config())
         installed += list(self.install_wms_config())
         return installed
+
+    def install_tomcat(self, update):
+        script = tomcat.Recipe(
+            self.buildout,
+            self.name,
+            self.options)
+        return script.install(update)
 
     def install_conda(self, update=False):
         script = conda.Recipe(
